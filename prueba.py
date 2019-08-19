@@ -20,7 +20,7 @@ print("clave publica(", n, "," ,euler,")" )
 
 word = input("word: ")
 palabra = list(word)
-#print(palabra)
+
 end_word = ""
 dec_word = ""
 for caracter in palabra:
@@ -28,10 +28,7 @@ for caracter in palabra:
     encrypt = (c ** euler)%n
     end_word += chr(encrypt)
     
-    #print(encrypt,'\t',chr(encrypt) )
-    
-    #print(decrypt,'\t',chr(decrypt) )
-    #print(chr((c ** euler)%n))
+   
 print (end_word)
 
 
