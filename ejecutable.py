@@ -1,44 +1,37 @@
-from tkinter import ttk
 from tkinter import *
-res = 'km'
-class Product:
-    def __init__(self, window):
-        self.wind = window
-        self.wind.title('Encriptacion RSA')
+from tkinter import ttk
 
-        frame = LabelFrame(self.wind, text = 'Encriptar:')
-        frame.grid(row = 0, column=0, columnspan = 3,pady= 20)
+def calculate(*args):
+    try:
+        value = float(p.get())
+        q.set((0.3048 * value * 10000.0 + 0.5)/10000.0)
+    except ValueError:
+        pass
 
+root = Tk()
+root.title("Feet to Meters")
 
-        Label(frame,text= 'p: ').grid(row =1,column =0)
-        self.p =Entry(frame)
-        self.p.focus()
-        self.p.grid(row =1,column=1)
+mainframe = ttk.Frame(root, padding="3 3 12 12")
+mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+root.columnconfigure(0, weight=1)
+root.rowconfigure(0, weight=1)
 
-        Label(frame,text= 'q: ').grid(row =2,column =0)
-        self.q =Entry(frame)
-        self.q.grid(row =2,column=1)
+p = StringVar()
+q = StringVar()
 
-        Label(frame,text= 'd: ').grid(row =3,column =0)
-        self.d =Entry(frame)
-        self.d.grid(row =3,column=1)
+feet_entry = ttk.Entry(mainframe, width=7, textvariable=p)
+feet_entry.grid(column=2, row=1, sticky=(W, E))
 
-        Label(frame,text= 'word: ').grid(row =4,column =0)
-        self.word =Entry(frame)
-        self.word.grid(row =4,column=1)
+ttk.Label(mainframe, textvariable=q).grid(column=2, row=2, sticky=(W, E))
+ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3, sticky=W)
 
-        ttk.Button(frame,text = 'encriptar',command = self.encriptar).grid(row=6,columnspan =2,sticky = W+E)
-        
-        
-        
-    def encriptar(self):
-        
-        
-        
+ttk.Label(mainframe, text="p").grid(column=3, row=1, sticky=W)
+ttk.Label(mainframe, text="is equivalent to").grid(column=1, row=2, sticky=E)
+ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
 
-if __name__ == '__main__':
-    window = Tk()
-    application = Product(window)
-    window.mainloop()
-    
-    
+for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
+
+feet_entry.focus()
+root.bind('<Return>', calculate)
+
+root.mainloop()
