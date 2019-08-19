@@ -32,7 +32,7 @@ class Product:
         
         
     def encriptar(self):
-        Label(frame,text= 'goa').grid(row =7,column =0)
+        
         
         
 
