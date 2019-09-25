@@ -73,7 +73,7 @@ ttk.Label(mainframe, textvariable=clv1).grid(column=2, row=5, sticky=(W, E))
 ttk.Label(mainframe, textvariable=clv2).grid(column=2, row=6, sticky=(W, E))
 ttk.Label(mainframe, textvariable=encript).grid(column=2, row=7, sticky=(W, E))
 ttk.Button(mainframe, text="Encriptar", command=calculate).grid(column=2, row=8, sticky=W)
-
+ttk.Button(mainframe, text="Desencriptar", command=calculate).grid(column=2, row=9, sticky=W)
 ttk.Label(mainframe, text="p:").grid(column=1, row=1)
 ttk.Label(mainframe, text="q:").grid(column=1, row=2)
 ttk.Label(mainframe, text="d:").grid(column=1, row=3)
