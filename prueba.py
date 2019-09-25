@@ -2,14 +2,14 @@
 
 p = int(input("p: "))
 q = int(input("q: "))
-d = int(input("d: "))
+d = int(input("d: "))›
 
 n = p*q
-En = (p-1)*(q-1)
+φn = (p-1)*(q-1)
 euler = 0
 
 while True:
-    mod = (d * euler) % En
+    mod = (d * euler) % φn
     if mod == 1:
         break
     euler += 1
@@ -26,6 +26,7 @@ dec_word = ""
 for caracter in palabra:
     c = ord(caracter)
     encrypt = (c ** euler)%n
+    print(caracter+ " -> "+str(c) + " encriptado-> " + str(encrypt))
     end_word += chr(encrypt)
     
    
