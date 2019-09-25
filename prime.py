@@ -1,11 +1,5 @@
 from random import randrange, getrandbits
 def is_prime(n, k=128):
-    """ Test if a number is prime
-        Args:
-            n -- int -- the number to test
-            k -- int -- the number of tests to do
-        return True if n is prime
-    """
     # Test if n is not even.
     # But care, 2 is prime !
     if n == 2 or n == 3:
@@ -33,22 +27,12 @@ def is_prime(n, k=128):
                 return False
     return True
 def generate_prime_candidate(length):
-    """ Generate an odd integer randomly
-        Args:
-            length -- int -- the length of the number to generate, in bits
-        return a integer
-    """
     # generate random bits
     p = getrandbits(length)
     # apply a mask to set MSB and LSB to 1
     p |= (1 << length - 1) | 1
     return p
-def generate_prime_number(length=64):
-    """ Generate a prime
-        Args:
-            length -- int -- length of the prime to generate, in          bits
-        return a prime
-    """
+def generate_prime_number(length=8):
     p = 4
     # keep generating while the primality test fail
     while not is_prime(p, 128):
@@ -56,6 +40,3 @@ def generate_prime_number(length=64):
     return p
 print(generate_prime_number())
 print(generate_prime_number())
-
-
-    

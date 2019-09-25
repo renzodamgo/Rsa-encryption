@@ -31,7 +31,8 @@ def calculate(*args):
         for caracter in palabra:
             c = ord(caracter)
             encrypt = (c ** euler)%n
-            end_word += chr(encrypt)
+            end_word += str(encrypt)
+            end_word += " "
 
         encript.set(end_word)
 
